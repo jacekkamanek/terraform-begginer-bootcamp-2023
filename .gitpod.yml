@@ -8,6 +8,10 @@ tasks:
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
+
+    $FILENAME='awscliv2.zip'
+      rm --force "/workspace/awscliv2.zip"
+      rm -rf '/workspace/aws'
       cd /workspace/terraform-begginer-bootcamp-2023
       cd .bin
       source install_aws_cli 
