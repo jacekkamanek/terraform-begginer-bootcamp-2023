@@ -35,5 +35,21 @@ If it is succesful you should see a json payload return that looks like this:
 }
 ```
 
+### Terraform providers ###
 
+``` This is the website you need to for your terraform providers config (https://registry.terraform.io/)```
 
+Basically **modules** are templates for our enviroment (ex VPC template)
+
+**providers** is an interface to APIs that will allow to create resources in terraform.
+
+### Terraform State Files
+
+'.terraform.tfstate' contains information about the current state of your infrastracture.
+
+This file **should not be commited to Version Control System eg. github!!**
+This file can contain sensetive data, '.terraform.tfstate.backup' --> previous state file. 
+
+### Terraform Directory
+
+'.terraform' directory contains binaries of terraform providers. 
