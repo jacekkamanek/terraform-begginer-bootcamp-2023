@@ -1,22 +1,25 @@
 terraform {
   required_providers {
-    random = {
-      source = "hashicorp/random"
-      version = "3.5.1"
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.20.1"
     }
   }
 }
 
-provider "random" {
+provider "aws" {
   # Configuration options
 }
 
-resource "random_string" "bucket_name" {
-  length           = 16
-  special          = true
-  override_special = ""
+resource "random_string" "bucket_suffix" {
+  length  = 42
+  special = false
+  upper   = false
+  lower   = true
+  number  = true
 }
 
-output "random_bucket_name_result" {
-    value = "random"
+resource "aws_s3_bucket" "example" {
+  bucket = "terra-${random_string.bucket_suffix.result}"
+  acl    = "private"
 }
