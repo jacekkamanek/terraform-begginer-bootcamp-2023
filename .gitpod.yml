@@ -4,8 +4,6 @@ tasks:
       cd /workspace/terraform-begginer-bootcamp-2023
       cd .bin
       source install_terraform_cli.sh
-      cd /workspace/terraform-begginer-bootcamp-2023
-      cd .bin
       source set_tf_alias 
   - name: aws-cli
     env:
@@ -14,8 +12,6 @@ tasks:
       cd /workspace/terraform-begginer-bootcamp-2023
       cd .bin
       source install_aws_cli
-      cd /workspace/terraform-begginer-bootcamp-2023
-      cd .bin
       source set_tf_alias 
 vscode:
   extensions:
