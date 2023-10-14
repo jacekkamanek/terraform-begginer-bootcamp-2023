@@ -53,3 +53,8 @@ This file can contain sensetive data, '.terraform.tfstate.backup' --> previous s
 ### Terraform Directory
 
 '.terraform' directory contains binaries of terraform providers. 
+
+## Setting Alias in .bash
+
+If u want to add alias, open ~/.bash_profile and add "alias tf="terraform" or add a script so u dont have to do it all over again. 
+
