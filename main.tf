@@ -1,22 +1,17 @@
 terraform {
   required_providers {
-    random = {
-      source = "hashicorp/random"
-      version = "3.5.1"
+    tfe = {
+      source = "hashicorp/tfe"
+      version = "0.49.2"
     }
   }
-}
 
-provider "random" {
-  # Configuration options
-}
+  cloud {
+    organization = "nowaorganizacja"
+    token = "TERRAFORM_CLOUD_TOKEN"
 
-resource "random_string" "bucket_name" {
-  length           = 16
-  special          = true
-  override_special = ""
-}
-
-output "random_bucket_name_result" {
-    value = "random"
+    workspaces {
+      name = "123"
+    }
+  }
 }
