@@ -1,17 +1,21 @@
 terraform {
   required_providers {
-    tfe = {
-      source = "hashicorp/tfe"
-      version = "0.49.2"
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.21.0"
     }
   }
+}
 
-  cloud {
-    organization = "nowaorganizacja"
-    token = "TERRAFORM_CLOUD_TOKEN"
+provider "aws" {
+  # Configuration options
 
-    workspaces {
-      name = "123"
-    }
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-tes11t-bucket"
+
+  tags = {
+    Name        = "My buck11et"
+    Environment = "Dev"
   }
+}
 }

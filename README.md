@@ -58,3 +58,13 @@ This file can contain sensetive data, '.terraform.tfstate.backup' --> previous s
 
 If u want to add alias, open ~/.bash_profile and add "alias tf="terraform" or add a script so u dont have to do it all over again. 
 
+
+
+## Project_Root
+
+- [ ] variables.tf - stores the structure of input variables
+- [ ] main.tf - everything else
+- [ ] providers.tf - defined required providers and their config
+- [ ] outputs.tf - stores our outputs
+- [ ] terraform.tfvars - data of variables we want to load into our terraform project
+- [ ] README.md - required for root modules
