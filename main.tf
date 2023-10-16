@@ -1,3 +1,4 @@
+
 terraform {
   required_providers {
     aws = {
@@ -8,14 +9,12 @@ terraform {
 }
 
 provider "aws" {
-  # Configuration options
+  resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}
 
 resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-tes11t-bucket"
-
-  tags = {
-    Name        = "My buck11et"
-    Environment = "Dev"
-  }
+  bucket = "my-s3-bucket-${random_id.bucket_suffix.hex}"
+  acl    = "private"  # You can set the desired ACL here
 }
 }
