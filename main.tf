@@ -1,4 +1,3 @@
-
 terraform {
   required_providers {
     aws = {
@@ -8,13 +7,29 @@ terraform {
   }
 }
 
-provider "aws" {
-  resource "random_id" "bucket_suffix" {
-  byte_length = 4
+  resource "aws_vpc" "my_vpc" {
+  cidr_block = "172.16.0.0/16"
+
+  tags = {
+    Name = "tf-example"
+  }
 }
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-s3-bucket-${random_id.bucket_suffix.hex}"
-  acl    = "private"  # You can set the desired ACL here
+resource "aws_subnet" "my_subnet" {
+  vpc_id            = aws_vpc.my_vpc.id
+  cidr_block        = "172.16.10.0/24"
+  availability_zone = "eu-central-1a"
+
+  tags = {
+    Name = "tf-example"
+  }
 }
+
+resource "aws_network_interface" "foo" {
+  subnet_id   = aws_subnet.my_subnet.id
+  private_ips = ["172.16.10.100"]
+
+  tags = {
+    Name = "primary_network_interface"
+  }
 }
