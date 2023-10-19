@@ -85,3 +85,11 @@ Project_Root
 ## Terraform.tfvars
 
 This is the default file to load in tf variables in bulk.
+
+### Fixing manual config/ config drift
+
+When some1 deletes or modifies remote/cloud resources manually through 'ClickOPS'. We can run "terraform plan" to detect config drift and replace missing resources. 
+
+### Loosing state file in terraform
+
+When we loose our state file, we most likely hava to tear down all cloud infrastructure manually. ## Terraform Import ## does not work on all resources, we need to check it on providers site.
