@@ -107,11 +107,11 @@ The module installer supports installation from a number of different source typ
     GCS buckets
     Modules in Package Sub-directories
 
-    egz.
-    ```python 
+    eg. (local paths)
+    ```terraform
     module "terrahouse_aws" {
   source = "./modules/terraform_aws"
   useruuid = " "
 }
-```
+   ```
 
