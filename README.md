@@ -93,3 +93,25 @@ When some1 deletes or modifies remote/cloud resources manually through 'ClickOPS
 ### Loosing state file in terraform
 
 When we loose our state file, we most likely hava to tear down all cloud infrastructure manually. ## Terraform Import ## does not work on all resources, we need to check it on providers site.
+
+### Terraform module Sources
+The module installer supports installation from a number of different source types.
+
+    Local paths
+    Terraform Registry
+    GitHub
+    Bitbucket
+    Generic Git, Mercurial repositories
+    HTTP URLs
+    S3 buckets
+    GCS buckets
+    Modules in Package Sub-directories
+
+    eg. (local paths)
+    ```terraform
+    module "terrahouse_aws" {
+  source = "./modules/terraform_aws"
+  useruuid = " "
+}
+   ```
+
